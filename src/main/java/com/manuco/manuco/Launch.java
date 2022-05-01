@@ -10,6 +10,9 @@ import javafx.stage.Stage;
 
 public class Launch extends Application {
 
+    /**
+     * Get SceneController instance
+     */
     SceneController sceneController = SceneController.getSceneControllerInstance();
 
     /**
@@ -19,6 +22,7 @@ public class Launch extends Application {
     @Override
     public void start(Stage stage)  {
 
+        // Sets initial scene to MainView.fxml
         sceneController.setInitialStageAndScene(stage);
 
     }
