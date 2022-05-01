@@ -1,4 +1,4 @@
-package com.manuco.manuco;
+package com.manuco.manuco.Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
