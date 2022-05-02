@@ -104,7 +104,7 @@ public class AddPartController implements Initializable {
             int newMax = Integer.parseInt(max.getText());
             int newMin = Integer.parseInt(min.getText());
             int newMachineID = Integer.parseInt(machineIdTextField.getText());
-            Inventory.addPart(new InHouse(newID, newName, newPrice, newInv, newMax, newMin, newMachineID));
+            Inventory.addPart(new InHouse(newID, newName, newPrice, newInv, newMin, newMax, newMachineID));
             sceneController.returnToMainView(event);
         } else if (outsourcedButton.isSelected() && ValidationController.verifyAllEntriesCompanyName()) {
             int newID = Inventory.generatePartIDNumber();
