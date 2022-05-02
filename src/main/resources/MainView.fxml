@@ -1,16 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.manuco.manuco.Controller.MainController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="999.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manuco.manuco.Controller.MainController">
+    <children>
+        <Text layoutX="351.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inventory Management System">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font></Text>
+        <Pane fx:id="partsPane" layoutX="19.0" layoutY="163.0" prefHeight="273.0" prefWidth="475.0">
+            <children>
+                <Button fx:id="addPartButton" layoutX="269.0" layoutY="241.0" mnemonicParsing="false" onAction="#openAddParts" text="Add" />
+                <Button layoutX="322.0" layoutY="241.0" mnemonicParsing="false" onAction="#openModifyPart" text="Modify" />
+                <Button layoutX="390.0" layoutY="241.0" mnemonicParsing="false" onAction="#deletePart" text="Delete" />
+                <TableView fx:id="partsTable" layoutX="31.0" layoutY="39.0" prefHeight="196.0" prefWidth="414.0">
+                    <columns>
+                        <TableColumn fx:id="partIdColumn" editable="false" prefWidth="67.0" text="Part IDs" />
+                        <TableColumn fx:id="partNameColumn" prefWidth="118.0" text="Part Name" />
+                        <TableColumn fx:id="partInvColumn" prefWidth="104.0" text="Inventory Level" />
+                        <TableColumn fx:id="partPriceColumn" prefWidth="123.0" text="Price/Cost per Unit" />
+                    </columns>
+                </TableView>
+                <Text layoutX="34.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Parts" />
+                <TextField fx:id="searchPartField" layoutX="253.0" layoutY="11.0" onAction="#searchPart" prefHeight="25.0" prefWidth="191.0" promptText="Part Search: by ID or Name" />
+            </children>
+        </Pane>
+        <Pane fx:id="productsPane" layoutX="513.0" layoutY="163.0" prefHeight="273.0" prefWidth="475.0">
+            <children>
+                <Button layoutX="269.0" layoutY="241.0" mnemonicParsing="false" onAction="#openAddProduct" text="Add" />
+                <Button layoutX="322.0" layoutY="241.0" mnemonicParsing="false" onAction="#openModifyProduct" text="Modify" />
+                <Button layoutX="390.0" layoutY="241.0" mnemonicParsing="false" onAction="#deleteProduct" text="Delete" />
+                <TableView fx:id="productsTable" layoutX="31.0" layoutY="39.0" prefHeight="196.0" prefWidth="414.0">
+                    <columns>
+                        <TableColumn fx:id="productIdColumn" prefWidth="67.0" text="Part IDs" />
+                        <TableColumn fx:id="productNameColumn" prefWidth="118.0" text="Product Name" />
+                        <TableColumn fx:id="productInvColumn" prefWidth="94.0" text="Inventory Level" />
+                        <TableColumn fx:id="productPriceColumn" prefWidth="133.0" text="Price/Cost per Unit" />
+                    </columns>
+                </TableView>
+                <Text layoutX="34.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="  " />
+                <Text layoutX="34.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Products" />
+                <TextField fx:id="searchProductField" layoutX="252.0" layoutY="11.0" onAction="#searchProduct" prefHeight="25.0" prefWidth="191.0" promptText="Part Search: by ID or Name" />
+            </children>
+        </Pane>
+        <Button fx:id="exitButton" layoutX="947.0" layoutY="559.0" mnemonicParsing="false" onAction="#exit" text="Exit" />
+    </children>
+</Pane>
