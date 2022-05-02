@@ -10,6 +10,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import com.manuco.manuco.Model.*;
 
+/**
+ * Allows a user to add a new part to the inventory list
+ */
 public class AddPartController implements Initializable {
 
     SceneController sceneController = SceneController.getSceneControllerInstance();
@@ -119,7 +122,7 @@ public class AddPartController implements Initializable {
     }
 
     /**
-     * Returns the user to the MainView
+     * Returns the user to the MainView without saving
      * @param event the user clicking the Cancel button triggers this event
      */
     public void cancel(ActionEvent event) {
