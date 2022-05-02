@@ -131,13 +131,14 @@ public class Inventory {
      * @param partToFind - the part to search for
      * @return the index of the part if found
      */
-    public static OptionalInt lookupPartIndex(Part partToFind) {
-        OptionalInt index = null;
+    public static int lookupPartIndex(Part partToFind) {
+        int index = 0;
         int i = 0;
         for (Iterator<Part>iterator = allParts.iterator(); iterator.hasNext(); i++) {
             Part part = iterator.next();
             if (part == partToFind) {
-                index = OptionalInt.of(i);
+                index = i;
+                break;
             }
         }
 
@@ -149,13 +150,14 @@ public class Inventory {
      * @param productToFind - the product to search for
      * @return the index of the product if found
      */
-    public static OptionalInt lookupProductIndex(Product productToFind) {
-        OptionalInt index = null;
+    public static int lookupProductIndex(Product productToFind) {
+        int index = 0;
         int i = 0;
         for (Iterator<Product> iterator = allProducts.iterator(); iterator.hasNext(); i++) {
             Product product = iterator.next();
             if (product == productToFind) {
-                index = OptionalInt.of(i);
+                index = i;
+                break;
             }
         }
 

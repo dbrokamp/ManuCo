@@ -51,6 +51,7 @@ public class AddPartController implements Initializable {
 
     /**
      * Sets labels and text fields to visible or not based on the selection the radio buttons: InHouse or Outsourced
+     * Adds appropriate listener to text fields based on selection
      */
     public void setPartType() {
         if (inHouseButton.isSelected()) {

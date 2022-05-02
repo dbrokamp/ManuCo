@@ -76,6 +76,10 @@ public class SceneController {
 
     }
 
+    /**
+     * Returns the user to the MainView
+     * @param event a button the user clicks triggers this action
+     */
     public void returnToMainView(ActionEvent event) {
         Stage stage;
         Scene scene;
