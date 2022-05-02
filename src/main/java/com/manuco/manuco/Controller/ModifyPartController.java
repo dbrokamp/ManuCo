@@ -30,6 +30,10 @@ public class ModifyPartController implements Initializable {
     @FXML private TextField machineIdTextField;
     @FXML private TextField companyNameTextField;
 
+    /**
+     * Returns the user to the MainView
+     * @param event the user clicking the Cancel button triggers this method
+     */
     public void cancel(ActionEvent event) {
         sceneController.returnToMainView(event);
     }
