@@ -4,6 +4,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
+/**
+ * Validates user input into text fields
+ */
 public class ValidationController {
 
     private static boolean nameIsValid = false;
@@ -28,9 +31,7 @@ public class ValidationController {
         MIN("Min must be a whole number."),
         MACHINE_ID("Machine ID must be a whole number."),
         COMPANY_NAME("Company name can only contain letters and spaces."),
-        INVALID_ENTRIES("Invalid entries. Save unsuccessful."),
-        NO_PARTS("Product must have at least one part added.");
-
+        INVALID_ENTRIES("Invalid entries. Save unsuccessful.");
 
         private final String errorText;
 
@@ -46,10 +47,17 @@ public class ValidationController {
         }
     }
 
+    /**
+     * Shows the user the INVALID_ENTRIES error
+     */
     public static void showInvalidEntriesError() {
         ValidationError.INVALID_ENTRIES.showValidationError();
     }
 
+    /**
+     * Sets all entries to valid.
+     * For use in ModifyPartView for parts with a machineId
+     */
     public static void setAllEntriesToValidForMachineID() {
         nameIsValid = true;
         invIsValid = true;
@@ -59,6 +67,10 @@ public class ValidationController {
         machineIDIsValid = true;
     }
 
+    /**
+     * Sets all entries to valid
+     * For use in ModifyPartView for parts with a companyName
+     */
     public static void setAllEntriesToValidForCompanyName() {
         nameIsValid = true;
         invIsValid = true;
@@ -68,6 +80,10 @@ public class ValidationController {
         companyNameIsValid = true;
     }
 
+    /**
+     * Sets all entries to valid.
+     * For use in ModifyProductView
+     */
     public static void setAllEntriesToValidForProduct() {
         nameIsValid = true;
         invIsValid = true;
@@ -76,6 +92,10 @@ public class ValidationController {
         minIsValid = true;
     }
 
+    /**
+     * Only allows entries with letters
+     * @param name the text field to add the listener to
+     */
     public static void addNameListener(TextField name) {
 
         // Listener to validate input after input changes
@@ -93,6 +113,10 @@ public class ValidationController {
 
     }
 
+    /**
+     * Only allows entries with whole numbers
+     * @param inv the text field to add the listener to
+     */
     public static void addInvListener(TextField inv) {
 
         // Listener to validate input after input changes
@@ -110,6 +134,10 @@ public class ValidationController {
 
     }
 
+    /**
+     * Only allows entries with whole numbers
+     * @param max the text field to add the listener to
+     */
     public static void addMaxListener(TextField max) {
 
         // Listener to validate input after input changes
@@ -127,6 +155,10 @@ public class ValidationController {
 
     }
 
+    /**
+     * Only allows entries with whole numbers
+     * @param min the text field to add the listener to
+     */
     public static void addMinListener(TextField min) {
 
         // Listener to validate input after input changes
@@ -144,6 +176,10 @@ public class ValidationController {
 
     }
 
+    /**
+     * Only allows entries with whole numbers
+     * @param machineID the text field to add the listener to
+     */
     public static void addMachineIDListener(TextField machineID) {
 
         // Listener to validate input after input changes
@@ -161,6 +197,10 @@ public class ValidationController {
 
     }
 
+    /**
+     * Only allows entries with letters
+     * @param companyName the text field to add the listener to
+     */
     public static void addCompanyNameListener(TextField companyName) {
 
         // Listener to validate input after input changes
@@ -178,6 +218,10 @@ public class ValidationController {
 
     }
 
+    /**
+     * Validates that the price entered is in the valid format xxx.xx
+     * @param price the text field to get input from
+     */
     public static void validatePriceFormat(TextField price) {
 
         if (!price.getText().isEmpty() && price.getText().matches("\\d+\\.\\d+")) {
@@ -189,6 +233,14 @@ public class ValidationController {
 
     }
 
+    /**
+     * Validates that inv is less than max and greater than min
+     * Validates that max is greater than min
+     * Validates that min is less than max
+     * @param inv the user entered current inventory
+     * @param max the user entered max inventory
+     * @param min the user entered minimum inventory
+     */
     public static void validateInvMaxMin(int inv, int max, int min) {
         if (inv > max || inv < min) {
             ValidationError.INV_LESS_THAN.showValidationError();
@@ -206,12 +258,21 @@ public class ValidationController {
         }
     }
 
+    /**
+     * Validates that one of the radio buttons is selected
+     * @param inHouse the InHouse radio button
+     * @param outsourced the Outsourced radio button
+     */
     public static void validateRadioButtonInput(RadioButton inHouse, RadioButton outsourced) {
         if (!inHouse.isSelected() && !outsourced.isSelected()) {
             ValidationError.RADIO.showValidationError();
         }
     }
 
+    /**
+     * Checks that all entries are valid for parts with a machineId
+     * @return true if all entries are valid
+     */
     public static boolean verifyAllEntriesMachineID() {
 
         if (nameIsValid && invIsValid && priceIsValid && maxIsValid && minIsValid && machineIDIsValid) {
@@ -221,6 +282,10 @@ public class ValidationController {
         return false;
     }
 
+    /**
+     * Checks that all entries are valid for parts with a companyName
+     * @return true if all entries are valid
+     */
     public static boolean verifyAllEntriesCompanyName() {
         if (nameIsValid && invIsValid && priceIsValid && maxIsValid && minIsValid && companyNameIsValid) {
             return true;
@@ -229,6 +294,10 @@ public class ValidationController {
         return false;
     }
 
+    /**
+     * Checks that all entries are valid for product entries
+     * @return true if all entries are valid
+     */
     public static boolean verifyProductEntries() {
         if (nameIsValid && invIsValid && priceIsValid && maxIsValid && minIsValid) {
             return true;
