@@ -75,4 +75,22 @@ public class SceneController {
         }
 
     }
+
+    public void returnToMainView(ActionEvent event) {
+        Stage stage;
+        Scene scene;
+        Parent root;
+
+        try {
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("MainView.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            scene.getStylesheets().add("style.css");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 }

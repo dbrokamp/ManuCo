@@ -56,8 +56,8 @@ public class MainController implements Initializable {
      * Initializes MainView.
      * Populates parts table.
      * Populates products table.
-     * From https://docs.oracle.com/javase/8/javafx/api/javafx/fxml/Initializable.html:
      *
+     * From https://docs.oracle.com/javase/8/javafx/api/javafx/fxml/Initializable.html:
      * @param url the location used to resolve relative paths for the root object, or null if the location is not known
      * @param rb  The resources used to localize the root object, or null if the root object was not localized.
      */
