@@ -14,7 +14,7 @@
             <font>
                 <Font name="System Bold" size="24.0" />
             </font></Text>
-        <Pane fx:id="partsPane" layoutX="19.0" layoutY="163.0" prefHeight="273.0" prefWidth="475.0">
+        <Pane id="parts-pane" fx:id="partsPane" layoutX="19.0" layoutY="163.0" prefHeight="273.0" prefWidth="475.0">
             <children>
                 <Button fx:id="addPartButton" layoutX="269.0" layoutY="241.0" mnemonicParsing="false" onAction="#openAddParts" text="Add" />
                 <Button layoutX="322.0" layoutY="241.0" mnemonicParsing="false" onAction="#openModifyPart" text="Modify" />
@@ -31,7 +31,7 @@
                 <TextField fx:id="searchPartField" layoutX="253.0" layoutY="11.0" onAction="#searchPart" prefHeight="25.0" prefWidth="191.0" promptText="Part Search: by ID or Name" />
             </children>
         </Pane>
-        <Pane fx:id="productsPane" layoutX="513.0" layoutY="163.0" prefHeight="273.0" prefWidth="475.0">
+        <Pane id="products-pane" fx:id="productsPane" layoutX="513.0" layoutY="163.0" prefHeight="273.0" prefWidth="475.0">
             <children>
                 <Button layoutX="269.0" layoutY="241.0" mnemonicParsing="false" onAction="#openAddProduct" text="Add" />
                 <Button layoutX="322.0" layoutY="241.0" mnemonicParsing="false" onAction="#openModifyProduct" text="Modify" />

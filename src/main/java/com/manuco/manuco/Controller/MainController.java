@@ -19,33 +19,50 @@ public class MainController implements Initializable {
     private static Part partToModify;
     private static Product productToModify;
 
-    @FXML TableView<Part> partsTable = new TableView<>();
-    @FXML TableColumn<Part, Integer> partIdColumn = new TableColumn<>("Part IDs");
-    @FXML TableColumn<Part, String> partNameColumn = new TableColumn<>("Part Name");
-    @FXML TableColumn<Part, Integer> partInvColumn = new TableColumn<>("Inventory Level");
-    @FXML TableColumn<Part, Double> partPriceColumn = new TableColumn<>("Price/Cost per Unit");
+    @FXML
+    TableView<Part> partsTable = new TableView<>();
+    @FXML
+    TableColumn<Part, Integer> partIdColumn = new TableColumn<>("Part IDs");
+    @FXML
+    TableColumn<Part, String> partNameColumn = new TableColumn<>("Part Name");
+    @FXML
+    TableColumn<Part, Integer> partInvColumn = new TableColumn<>("Inventory Level");
+    @FXML
+    TableColumn<Part, Double> partPriceColumn = new TableColumn<>("Price/Cost per Unit");
 
-    @FXML TableView<Product> productsTable;
-    @FXML TableColumn<Product, Integer> productIdColumn = new TableColumn<>("Product ID");
-    @FXML TableColumn<Product, String> productNameColumn = new TableColumn<>("Product Name");
-    @FXML TableColumn<Product, Integer> productInvColumn = new TableColumn<>("Inventory Level");
-    @FXML TableColumn<Product, Double> productPriceColumn = new TableColumn<>("Price/Cost Per Unit");
+    @FXML
+    TableView<Product> productsTable;
+    @FXML
+    TableColumn<Product, Integer> productIdColumn = new TableColumn<>("Product ID");
+    @FXML
+    TableColumn<Product, String> productNameColumn = new TableColumn<>("Product Name");
+    @FXML
+    TableColumn<Product, Integer> productInvColumn = new TableColumn<>("Inventory Level");
+    @FXML
+    TableColumn<Product, Double> productPriceColumn = new TableColumn<>("Price/Cost Per Unit");
 
     @FXML
     TextField searchPartField;
-    @FXML TextField searchProductField;
+    @FXML
+    TextField searchProductField;
 
     @FXML
     Pane partsPane;
-    @FXML Pane productsPane;
+    @FXML
+    Pane productsPane;
 
 
+    /**
+     * Initializes MainView.
+     * Populates parts table.
+     * Populates products table.
+     * From https://docs.oracle.com/javase/8/javafx/api/javafx/fxml/Initializable.html:
+     *
+     * @param url the location used to resolve relative paths for the root object, or null if the location is not known
+     * @param rb  The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        System.out.println("Main initializing");
-
-        partsPane.setId("parts-pane");
-        productsPane.setId("products-pane");
 
         // Set up part table
         partIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -65,15 +82,44 @@ public class MainController implements Initializable {
 
     }
 
+    /**
+     * Calls sceneController to open AddPartView
+     *
+     * @param event - the user event that triggers this method
+     */
     public void openAddParts(ActionEvent event) {
-        System.out.println("Opening add part form.");
-        sceneController.setScene(event, "AddPart.fxml");
+        sceneController.setScene(event, "AddPartView.fxml");
     }
 
-    public static Part getPartToModify() {
-        return partToModify;
+    /**
+     * Calls sceneController to open AddProductView
+     *
+     * @param event the user event that triggers this method
+     */
+    public void openAddProduct(ActionEvent event) {
+        sceneController.setScene(event, "AddProductView.fxml");
     }
 
+
+    /**
+     * Gets the part selected in the parts table
+     *
+     * @return the part selected in the parts table
+     */
+    public static Part getPartToModify() { return partToModify; }
+
+    /**
+     * Gets the product selected in the product table
+     *
+     * @return the product selected in the product table
+     */
+    public static Product getProductToModify() { return productToModify; }
+
+    /**
+     * If a part is selected in the parts table, sceneController is called to open ModifyPartView
+     *
+     * @param event the user event that triggers this method
+     */
     public void openModifyPart(ActionEvent event) {
 
         partToModify = partsTable.getSelectionModel().getSelectedItem();
@@ -84,12 +130,16 @@ public class MainController implements Initializable {
             alert.setContentText("Please select a part in the table.");
             alert.showAndWait();
         } else {
-            sceneController.setScene(event, "ModifyPart.fxml");
+            sceneController.setScene(event, "ModifyPartView.fxml");
         }
     }
 
+    /**
+     * If a product is selected in the products table, sceneController is called to open ModifyProductView
+     *
+     * @param event the user event that triggers this method
+     */
     public void openModifyProduct(ActionEvent event) {
-        System.out.println("Opening Modify Product form.");
 
         productToModify = productsTable.getSelectionModel().getSelectedItem();
 
@@ -99,15 +149,16 @@ public class MainController implements Initializable {
             alert.setContentText("Please select a product in the table.");
             alert.showAndWait();
         } else {
-            sceneController.setScene(event, "ModifyProduct.fxml");
+            sceneController.setScene(event, "ModifyProductView.fxml");
         }
 
 
     }
 
-    public static Product getProductToModify() { return productToModify; }
-
-    public void deletePart(ActionEvent event) {
+    /**
+     * Deletes the part selected in the part table
+     */
+    public void deletePart() {
         Part partToDelete = partsTable.getSelectionModel().getSelectedItem();
         boolean deleteSuccessful = false;
 
@@ -128,7 +179,10 @@ public class MainController implements Initializable {
         }
     }
 
-    public void deleteProduct(ActionEvent event) {
+    /**
+     * Deletes the product selected in the product table
+     */
+    public void deleteProduct() {
         Product productToDelete = productsTable.getSelectionModel().getSelectedItem();
         boolean deleteSuccessful = false;
 
@@ -155,7 +209,10 @@ public class MainController implements Initializable {
         }
     }
 
-    public void searchPart(ActionEvent event) {
+    /**
+     * Searches the part list by either a string (name) or int (id)
+     */
+    public void searchPart() {
         String searchInput = searchPartField.getText();
         ObservableList<Part> partsToShow = FXCollections.observableArrayList();
 
@@ -171,7 +228,10 @@ public class MainController implements Initializable {
         }
     }
 
-    public void searchProduct(ActionEvent event) {
+    /**
+     * Searches the product list by either a string (name) or int (id)
+     */
+    public void searchProduct() {
         String searchInput = searchProductField.getText();
         ObservableList<Product> productsToShow = FXCollections.observableArrayList();
 
@@ -187,12 +247,10 @@ public class MainController implements Initializable {
         }
     }
 
-    public void exit() {
-        Platform.exit();
-    }
+    /**
+     * Closes the application
+     */
+    public void exit() { Platform.exit(); }
 
-    public void openAddProduct(ActionEvent event) {
-        System.out.println("Opening Add Product form.");
-        sceneController.setScene(event,"AddProduct.fxml");
-    }
 }
+
