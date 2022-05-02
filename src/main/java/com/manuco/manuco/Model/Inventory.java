@@ -3,7 +3,6 @@ package com.manuco.manuco.Model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.util.Iterator;
-import java.util.OptionalInt;
 
 /**
  * Keeps track of all inventory in the system.
@@ -33,7 +32,7 @@ public class Inventory {
     }
 
     /**
-     * Adds a new part to allparts
+     * Adds a new part to allParts
      * @param part to add
      */
     public static void addPart(Part part) { allParts.add(part); }
@@ -50,10 +49,8 @@ public class Inventory {
      * @return part if found, null if part is not found in allParts
      */
     public static Part lookupPart(int partId) {
-        // Find using an iterator
-        Iterator<Part> iterator = allParts.iterator();
-        while (iterator.hasNext()) {
-            Part part = iterator.next();
+
+        for (Part part : allParts) {
             if (part.getId() == partId) {
                 return part;
             }
@@ -67,10 +64,8 @@ public class Inventory {
      * @return product if found, null if product is not found in allProducts
      */
     public static Product lookupProduct(int productId) {
-        // Find using an iterator
-        Iterator<Product> iterator = allProducts.iterator();
-        while (iterator.hasNext()) {
-            Product product = iterator.next();
+
+        for (Product product : allProducts) {
             if (product.getId() == productId) {
                 return product;
             }
@@ -85,10 +80,8 @@ public class Inventory {
      */
     public static ObservableList<Part> lookupPart(String name) {
         ObservableList<Part> partsToReturn = FXCollections.observableArrayList();
-        // Find using an iterator
-        Iterator<Part> iterator = allParts.iterator();
-        while (iterator.hasNext()) {
-            Part part = iterator.next();
+
+        for (Part part : allParts) {
             if (part.getName().contains(name)) {
                 partsToReturn.add(part);
             }
@@ -110,10 +103,7 @@ public class Inventory {
     public static ObservableList<Product> lookupProduct(String name) {
         ObservableList<Product> productsToReturn = FXCollections.observableArrayList();
 
-        // Find using an iterator
-        Iterator<Product> iterator = allProducts.iterator();
-        while (iterator.hasNext()) {
-            Product product = iterator.next();
+        for (Product product : allProducts) {
             if (product.getName().contains(name)) {
                 productsToReturn.add(product);
             }
@@ -186,7 +176,6 @@ public class Inventory {
      */
     public static boolean deletePart(Part part) {
         if (allParts.contains(part)) {
-            int index = allParts.indexOf(part);
             allParts.remove(part);
             return true;
         } else {

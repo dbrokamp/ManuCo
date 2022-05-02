@@ -151,11 +151,18 @@ public class ModifyProductController implements Initializable {
             alert.setContentText("Please select a part in the table.");
             alert.showAndWait();
         } else {
-            productToModify.deleteAssociatedPart(partToDelete);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Part deleted.");
-            alert.setContentText("Part deleted from product successfully.");
-            alert.showAndWait();
+            if (productToModify.deleteAssociatedPart(partToDelete)) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Part deleted.");
+                alert.setContentText("Part deleted from product successfully.");
+                alert.showAndWait();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Delete unsuccessful.");
+                alert.setContentText("Part was not deleted from associated parts list.");
+                alert.showAndWait();
+            }
+
         }
     }
 

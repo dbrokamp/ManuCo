@@ -39,7 +39,7 @@ public class MainController implements Initializable {
 
     /**
      * Initializes MainView.
-     * Populates parts table.
+     * Populate parts table.
      * Populates products table.
      *
      * From https://docs.oracle.com/javase/8/javafx/api/javafx/fxml/Initializable.html:
@@ -156,7 +156,7 @@ public class MainController implements Initializable {
             deleteSuccessful = Inventory.deletePart(partToDelete);
         }
 
-        if (deleteSuccessful == true) {
+        if (deleteSuccessful) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Delete Successful");
             alert.setContentText(partToDelete.getName() + " deleted successfully.");
@@ -186,7 +186,7 @@ public class MainController implements Initializable {
             deleteSuccessful = Inventory.deleteProduct(productToDelete);
         }
 
-        if (deleteSuccessful == true) {
+        if (deleteSuccessful) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Delete Successful");
             alert.setContentText(productToDelete.getName() + " deleted successfully.");

@@ -219,6 +219,10 @@ public class ValidationController {
     }
 
     /**
+     * RUNTIME ERROR: first used a listener for the price field to only allow xx.xx entries. This triggered a warning
+     * even if one number was entered. I corrected this by removing the listener and adding a method to
+     * Validation Controller to check the price text field for correct input after the Save button was clicked.
+     *
      * Validates that the price entered is in the valid format xxx.xx
      * @param price the text field to get input from
      */
@@ -275,11 +279,8 @@ public class ValidationController {
      */
     public static boolean verifyAllEntriesMachineID() {
 
-        if (nameIsValid && invIsValid && priceIsValid && maxIsValid && minIsValid && machineIDIsValid) {
-            return true;
-        }
+        return nameIsValid && invIsValid && priceIsValid && maxIsValid && minIsValid && machineIDIsValid;
 
-        return false;
     }
 
     /**
@@ -287,11 +288,7 @@ public class ValidationController {
      * @return true if all entries are valid
      */
     public static boolean verifyAllEntriesCompanyName() {
-        if (nameIsValid && invIsValid && priceIsValid && maxIsValid && minIsValid && companyNameIsValid) {
-            return true;
-        }
-
-        return false;
+        return nameIsValid && invIsValid && priceIsValid && maxIsValid && minIsValid && companyNameIsValid;
     }
 
     /**
@@ -299,11 +296,7 @@ public class ValidationController {
      * @return true if all entries are valid
      */
     public static boolean verifyProductEntries() {
-        if (nameIsValid && invIsValid && priceIsValid && maxIsValid && minIsValid) {
-            return true;
-        }
-
-        return false;
+        return nameIsValid && invIsValid && priceIsValid && maxIsValid && minIsValid;
     }
 
 }
