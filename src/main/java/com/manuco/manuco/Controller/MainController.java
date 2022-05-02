@@ -19,38 +19,23 @@ public class MainController implements Initializable {
     private static Part partToModify;
     private static Product productToModify;
 
-    @FXML
-    TableView<Part> partsTable = new TableView<>();
-    @FXML
-    TableColumn<Part, Integer> partIdColumn = new TableColumn<>("Part IDs");
-    @FXML
-    TableColumn<Part, String> partNameColumn = new TableColumn<>("Part Name");
-    @FXML
-    TableColumn<Part, Integer> partInvColumn = new TableColumn<>("Inventory Level");
-    @FXML
-    TableColumn<Part, Double> partPriceColumn = new TableColumn<>("Price/Cost per Unit");
+    @FXML TableView<Part> partsTable = new TableView<>();
+    @FXML TableColumn<Part, Integer> partIdColumn = new TableColumn<>("Part IDs");
+    @FXML TableColumn<Part, String> partNameColumn = new TableColumn<>("Part Name");
+    @FXML TableColumn<Part, Integer> partInvColumn = new TableColumn<>("Inventory Level");
+    @FXML TableColumn<Part, Double> partPriceColumn = new TableColumn<>("Price/Cost per Unit");
 
-    @FXML
-    TableView<Product> productsTable;
-    @FXML
-    TableColumn<Product, Integer> productIdColumn = new TableColumn<>("Product ID");
-    @FXML
-    TableColumn<Product, String> productNameColumn = new TableColumn<>("Product Name");
-    @FXML
-    TableColumn<Product, Integer> productInvColumn = new TableColumn<>("Inventory Level");
-    @FXML
-    TableColumn<Product, Double> productPriceColumn = new TableColumn<>("Price/Cost Per Unit");
+    @FXML TableView<Product> productsTable;
+    @FXML TableColumn<Product, Integer> productIdColumn = new TableColumn<>("Product ID");
+    @FXML TableColumn<Product, String> productNameColumn = new TableColumn<>("Product Name");
+    @FXML TableColumn<Product, Integer> productInvColumn = new TableColumn<>("Inventory Level");
+    @FXML TableColumn<Product, Double> productPriceColumn = new TableColumn<>("Price/Cost Per Unit");
 
-    @FXML
-    TextField searchPartField;
-    @FXML
-    TextField searchProductField;
+    @FXML TextField searchPartField;
+    @FXML TextField searchProductField;
 
-    @FXML
-    Pane partsPane;
-    @FXML
-    Pane productsPane;
-
+    @FXML Pane partsPane;
+    @FXML Pane productsPane;
 
     /**
      * Initializes MainView.
