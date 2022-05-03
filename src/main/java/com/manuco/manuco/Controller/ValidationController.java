@@ -21,7 +21,7 @@ public class ValidationController {
 
     private enum ValidationError {
         RADIO("In House or Outsourced must be selected."),
-        NAME("Name field can only contain letters."),
+        NAME("Name field can only contain letters, numbers, spaces, dashes, and underscores."),
         INV("Inventory must be a whole number."),
         INV_LESS_THAN("Inventory must be less than or equal to Max and greater than or equal to Min."),
         PRICE("Price must be in format xx.xx"),
@@ -30,7 +30,7 @@ public class ValidationController {
         MIN_GREATER_THAN_MAX("Min must be less than Max."),
         MIN("Min must be a whole number."),
         MACHINE_ID("Machine ID must be a whole number."),
-        COMPANY_NAME("Company name can only contain letters and spaces."),
+        COMPANY_NAME("Company field can only contain letters, numbers, spaces, dashes, and underscores."),
         INVALID_ENTRIES("Invalid entries. Save unsuccessful.");
 
         private final String errorText;
@@ -102,7 +102,7 @@ public class ValidationController {
         name.textProperty().addListener((observableValue, oldValue, newValue) -> {
             if (newValue.isBlank()) {
                 nameIsValid = false;
-            } else if (newValue.matches("[a-zA-Z]+")) {
+            } else if (newValue.matches("[a-zA-Z0-9-_ ]+")) {
                 nameIsValid = true;
             } else {
                 ValidationError.NAME.showValidationError();
@@ -207,7 +207,7 @@ public class ValidationController {
         companyName.textProperty().addListener((observableValue, oldValue, newValue) -> {
             if (newValue.isBlank()) {
                 companyNameIsValid = false;
-            } else if (newValue.matches("[a-zA-Z ]+")) {
+            } else if (newValue.matches("[a-zA-Z0-9-_ ]+")) {
                 companyNameIsValid = true;
             } else {
                 ValidationError.COMPANY_NAME.showValidationError();

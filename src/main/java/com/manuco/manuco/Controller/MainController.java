@@ -214,7 +214,17 @@ public class MainController implements Initializable {
             partsToShow = Inventory.lookupPart(searchInput);
             partsTable.setItems(partsToShow);
         }
+
+        if (!searchInput.isEmpty()) {
+            if (partsToShow == null || partsToShow.contains(null)) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Part Search");
+                alert.setContentText("No part found");
+                alert.showAndWait();
+            }
+        }
     }
+
 
     /**
      * Searches the product list by either a string (name) or int (id)
@@ -232,6 +242,15 @@ public class MainController implements Initializable {
         } else if (searchInput.matches("[a-zA-Z]+")) {
             productsToShow = Inventory.lookupProduct(searchInput);
             productsTable.setItems(productsToShow);
+        }
+
+        if (!searchInput.isEmpty()) {
+            if (productsToShow == null || productsToShow.contains(null)) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Part Search");
+                alert.setContentText("No part found");
+                alert.showAndWait();
+            }
         }
     }
 

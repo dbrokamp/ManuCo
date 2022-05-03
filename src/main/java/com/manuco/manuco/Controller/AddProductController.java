@@ -136,6 +136,15 @@ public class AddProductController implements Initializable {
             partsToShow = Inventory.lookupPart(searchInput);
             partsTable.setItems(partsToShow);
         }
+
+        if (!searchInput.isEmpty()) {
+            if (partsToShow == null || partsToShow.contains(null)) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Part Search");
+                alert.setContentText("No part found");
+                alert.showAndWait();
+            }
+        }
     }
 
     /**
