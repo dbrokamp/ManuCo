@@ -97,7 +97,8 @@ public class AddPartController implements Initializable {
         ValidationController.validateInvMaxMin(Integer.parseInt(inv.getText()), Integer.parseInt(max.getText()), Integer.parseInt(min.getText()));
 
         if (inHouseButton.isSelected() && ValidationController.verifyAllEntriesMachineID()) {
-            int newID = Inventory.generatePartIDNumber();
+            int newID = Inventory.getAllParts().get(Inventory.getAllParts().size() - 1).getId();
+            newID++;
             String newName = name.getText();
             double newPrice = Double.parseDouble(price.getText());
             int newInv = Integer.parseInt(inv.getText());
@@ -107,7 +108,8 @@ public class AddPartController implements Initializable {
             Inventory.addPart(new InHouse(newID, newName, newPrice, newInv, newMin, newMax, newMachineID));
             sceneController.returnToMainView(event);
         } else if (outsourcedButton.isSelected() && ValidationController.verifyAllEntriesCompanyName()) {
-            int newID = Inventory.generatePartIDNumber();
+            int newID = Inventory.getAllParts().get(Inventory.getAllParts().size() - 1).getId();
+            newID++;
             String newName = name.getText();
             double newPrice = Double.parseDouble(price.getText());
             int newInv = Integer.parseInt(inv.getText());

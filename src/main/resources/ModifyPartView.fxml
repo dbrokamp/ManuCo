@@ -20,7 +20,7 @@
                 <ToggleGroup fx:id="partType" />
             </toggleGroup></RadioButton>
         <RadioButton fx:id="outsourcedButton" layoutX="511.0" layoutY="106.0" mnemonicParsing="false" onAction="#setPartType" text="Out-sourced" toggleGroup="$partType" />
-        <TextField fx:id="id" editable="false" layoutX="398.0" layoutY="166.0" prefWidth="122.0" />
+        <TextField fx:id="id" disable="true" editable="false" layoutX="398.0" layoutY="166.0" prefWidth="122.0" promptText="Auto Generated: Disabled" />
         <TextField fx:id="name" layoutX="398.0" layoutY="202.0" prefWidth="122.0" />
         <TextField fx:id="inv" layoutX="398.0" layoutY="236.0" prefWidth="122.0" />
         <TextField fx:id="price" layoutX="398.0" layoutY="270.0" prefWidth="122.0" />

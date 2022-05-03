@@ -14,24 +14,6 @@ public class Inventory {
     private static ObservableList<Product> allProducts = FXCollections.observableArrayList();
 
     /**
-     * Generates a new partId by incrementing the last partId in the allParts list
-     * @return the new partId
-     */
-    public static int generatePartIDNumber() {
-        int currentLastPartNumber = allParts.get(allParts.size() - 1).getId();
-        return currentLastPartNumber++;
-    }
-
-    /**
-     * Generates a new productId by incrementing the last productId in the allParts list
-     * @return the new productId
-     */
-    public static int generateProductIDNumber() {
-        int currentLastProductNumber = allProducts.get(allProducts.size() - 1).getId();
-        return currentLastProductNumber++;
-    }
-
-    /**
      * Adds a new part to allParts
      * @param part to add
      */

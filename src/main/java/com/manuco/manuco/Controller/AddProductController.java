@@ -58,8 +58,9 @@ public class AddProductController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         id.isDisabled();
-
-        newProduct = new Product(partsToAdd, Inventory.generateProductIDNumber(), "", 0.00, 0, 0, 0);
+        int newID = Inventory.getAllProducts().get(Inventory.getAllProducts().size() - 1).getId();
+        newID++;
+        newProduct = new Product(partsToAdd, newID, "", 0.00, 0, 0, 0);
 
         // Set up part table
         partIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));

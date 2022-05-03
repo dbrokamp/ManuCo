@@ -62,7 +62,6 @@ public class ModifyPartController implements Initializable {
             machineIdTextField.setVisible(true);
 
             // Populate all fields with values passed from MainController
-            id.setText(String.valueOf(partToModify.getId()));
             name.setText(partToModify.getName());
             inv.setText(String.valueOf(partToModify.getStock()));
             price.setText(String.valueOf(partToModify.getPrice()));
@@ -79,7 +78,6 @@ public class ModifyPartController implements Initializable {
             companyNameLabel.setVisible(true);
             companyNameTextField.setVisible(true);
 
-            id.setText(String.valueOf(partToModify.getId()));
             name.setText(partToModify.getName());
             inv.setText(String.valueOf(partToModify.getStock()));
             price.setText(String.valueOf(partToModify.getPrice()));
@@ -160,7 +158,7 @@ public class ModifyPartController implements Initializable {
             Inventory.updatePart(partToModifyIndex, updatedPart);
             sceneController.returnToMainView(event);
         } else if (outsourcedButton.isSelected() && ValidationController.verifyAllEntriesCompanyName()) {
-            int newID = Inventory.generatePartIDNumber();
+            int newID = partToModify.getId();
             String newName = name.getText();
             double newPrice = Double.parseDouble(price.getText());
             int newInv = Integer.parseInt(inv.getText());
