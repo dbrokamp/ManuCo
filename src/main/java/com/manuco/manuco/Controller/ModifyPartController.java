@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,8 +16,10 @@ public class ModifyPartController implements Initializable {
 
     private static Part partToModify;
 
+
     SceneController sceneController = SceneController.getSceneControllerInstance();
 
+    @FXML private ToggleGroup partType;
     @FXML private RadioButton inHouseButton;
     @FXML private RadioButton outsourcedButton;
     @FXML private Label machineIdLabel;
