@@ -33,6 +33,9 @@ public class Launch extends Application {
 
     }
 
+    // Javadoc files located in ManuCo/Javadoc
+    // Example video located in ManuCo/Video
+
     /**
      * Entry point for application
      * @param args - arguments to launch application
