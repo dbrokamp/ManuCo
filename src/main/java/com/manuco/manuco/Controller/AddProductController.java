@@ -169,7 +169,7 @@ public class AddProductController implements Initializable {
             newProduct.setMax(Integer.parseInt(max.getText()));
             newProduct.setMin(Integer.parseInt(min.getText()));
             Inventory.addProduct(newProduct);
-            sceneController.setScene(event, "Main.fxml");
+            sceneController.returnToMainView(event);
 
         }
 
