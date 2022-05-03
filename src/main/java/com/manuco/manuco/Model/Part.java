@@ -11,6 +11,17 @@ public abstract class Part {
     private int stock;
     private int min;
     private int max;
+
+
+    /**
+     * Constructor to be used by subclasses
+     * @param id for the part
+     * @param name for the part
+     * @param price for the part
+     * @param stock for the part
+     * @param min for the part
+     * @param max for the part
+     */
     public Part(int id, String name, double price, int stock, int min, int max) {
         this.id = id;
         this.name = name;

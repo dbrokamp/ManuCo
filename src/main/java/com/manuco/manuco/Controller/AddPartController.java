@@ -73,7 +73,7 @@ public class AddPartController implements Initializable {
      * Validates all text fields have values and are valid entries.
      * Validates a radio button is selected.
      * Validates the price format.
-     * Validates that inv <= max and inv >= min and min <= max
+     * Validates that inv is less than or equal to max and greater than or equal to min and min is less than or equal to max
      * If Validation succeeds, user is redirected to MainView
      * @param event User clicking the Save button triggers this method
      */

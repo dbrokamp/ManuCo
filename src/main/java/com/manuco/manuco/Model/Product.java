@@ -14,6 +14,16 @@ public class Product {
     private int min;
     private int max;
 
+    /**
+     * Public constructor
+     * @param associatedParts parts associated with this product
+     * @param id for this product
+     * @param name for this product
+     * @param price for this product
+     * @param stock for this product
+     * @param min for this product
+     * @param max for this product
+     */
     public Product(ObservableList<Part> associatedParts, int id, String name, double price, int stock, int min, int max) {
         this.associatedParts = associatedParts;
         this.id = id;
