@@ -14,6 +14,9 @@ import javafx.scene.layout.Pane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controls MainView and displays inventory lists of parts and products
+ */
 public class MainController implements Initializable {
     SceneController sceneController = SceneController.getSceneControllerInstance();
     private static Part partToModify;

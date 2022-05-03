@@ -12,6 +12,9 @@ import javafx.scene.control.ToggleGroup;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Allows a user to modify a part's information
+ */
 public class ModifyPartController implements Initializable {
 
     private static Part partToModify;
